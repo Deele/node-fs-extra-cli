@@ -1,0 +1,49 @@
+{
+  "name": "fs-extra-cli",
+  "version": "0.1.0",
+  "description": "Provides fs-extra filesystem methods in cli interface",
+  "author": {
+    "name": "Nils Lindentals",
+    "email": "nils@dfworks.lv",
+    "url": "http://dfworks.lv"
+  },
+  "keywords": [
+    "fs",
+    "file",
+    "file system",
+    "copy",
+    "directory",
+    "extra",
+    "mkdirp",
+    "mkdir",
+    "mkdirs",
+    "recursive",
+    "json",
+    "read",
+    "write",
+    "extra",
+    "delete",
+    "remove",
+    "touch",
+    "create",
+    "text",
+    "output",
+    "move",
+    "cli"
+  ],
+  "license": "GPLv3",
+  "homepage": "https://github.com/deele/node-fs-extra-cli",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deele/node-fs-extra-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/deele/node-fs-extra-cli/issues"
+  },
+  "dependencies": {
+    "fs-extra": "latest",
+    "minimist": "latest"
+  },
+  "bin": {
+  }
+}
