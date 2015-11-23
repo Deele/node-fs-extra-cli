@@ -17,7 +17,6 @@ var args = require('minimist')(
             }
         }
     ),
-    cmd = args['_'][0],
     fs = require('fs-extra'),
 	path = require('path'),
 	source = args['_'][0],
