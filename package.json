@@ -45,6 +45,7 @@
     "minimist": "latest"
   },
   "bin": {
-    "fse-copy": "./bin/fse-copy.js"
+    "fse-copy": "./bin/fse-copy.js",
+    "fse-move": "./bin/fse-move.js"
   }
 }
