@@ -11,6 +11,7 @@ Installation
 Commands
 --------
 - [copy](#copy)
+- [move](#move)
 
 Usage
 -----
@@ -38,3 +39,24 @@ Copy `index.html` from `src` directory to `dist` directory
 Copy `index.html` from `src` directory to `dist` directory preserving timestamp of `index.html`
 
 `fse-copy -p src/index.html dist/index.html`
+
+### Move
+
+**fse-move source destination**
+
+Moves a file or directory, even across devices. Can be used for renaming too.
+
+Options:
+
+    *-n*, *--no-clobber*
+        do not overwrite an existing file, show error if destination exists
+
+Examples:
+
+Move `access.log` from `log` directory to `archive` directory
+
+`fse-move logs/access.log archive/access.log`
+
+Rename `access.log` from `log/access.log` to `log/access_archived-1.log`
+
+`fse-move log/access.log log/access_archived-1.log`
