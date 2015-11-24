@@ -5,11 +5,11 @@ var args = require('minimist')(
         {
             'alias': {
                 'no-clobber': ['n'],
-                'preserve': ['p'],
+                'preserve': ['p']
             },
             'boolean': [
                 'no-clobber',
-                'preserve',
+                'preserve'
             ],
             'default': {
                 'no-clobber': false,
@@ -18,9 +18,9 @@ var args = require('minimist')(
         }
     ),
     fs = require('fs-extra'),
-	path = require('path'),
-	source = args['_'][0],
-	destination = args['_'][1];
+    path = require('path'),
+    source = args['_'][0],
+    destination = args['_'][1];
 process.stdout.on('error', process.exit);
 
 function errorExit(err) {
@@ -34,37 +34,37 @@ function errorExit(err) {
 }
 
 if (typeof source === 'undefined' || source.length == 0 || typeof destination === 'undefined' || destination.length == 0) {
-	errorExit('The syntax of the command is incorrect. Usage: fse-copy {{source}} {{destination}}');
+    errorExit('The syntax of the command is incorrect. Usage: fse-copy {{source}} {{destination}}');
 }
 else {
-	var sourcePath = path.resolve(process.cwd(), source),
-		destinationPath = path.resolve(process.cwd(), destination);
-	try {
-		fs.accessSync(sourcePath, fs.F_OK | fs.R_OK);
-	}
-	catch (err) {
-		errorExit('cannot access `'+source+'`: No such file or directory');
-	}
-	try {
-		fs.copySync(
-			sourcePath,
-			destinationPath,
-			{
-				clobber: (!args['no-clobber']),
-				preserveTimestamps: (args['preserve'])
-			},
-			function (err) {
-				if (err) {
-					errorExit(err);
-				}
-			}
-		);
-	}
-	catch (err) {
-		if (err.message == 'EEXIST') {
-			errorExit('cannot copy `'+source+'`: Destination `'+destination+'` already exists');
-		} else {
-			errorExit('cannot copy `'+source+'`: ' + err.message);
-		}
-	}
+    var sourcePath = path.resolve(process.cwd(), source),
+        destinationPath = path.resolve(process.cwd(), destination);
+    try {
+        fs.accessSync(sourcePath, fs.F_OK | fs.R_OK);
+    }
+    catch (err) {
+        errorExit('cannot access `'+source+'`: No such file or directory');
+    }
+    try {
+        fs.copySync(
+            sourcePath,
+            destinationPath,
+            {
+                clobber: (!args['no-clobber']),
+                preserveTimestamps: (args['preserve'])
+            },
+            function (err) {
+                if (err) {
+                    errorExit(err);
+                }
+            }
+        );
+    }
+    catch (err) {
+        if (err.message == 'EEXIST') {
+            errorExit('cannot copy `'+source+'`: Destination `'+destination+'` already exists');
+        } else {
+            errorExit('cannot copy `'+source+'`: ' + err.message);
+        }
+    }
 }
